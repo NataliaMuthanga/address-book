@@ -51,3 +51,5 @@ function loadContacts() {
         addContactToTable(contact)
     });
 }
+
+displayContacts(contacts);

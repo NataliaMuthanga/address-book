@@ -54,23 +54,39 @@ function loadContacts() {
 
 displayContacts(contacts);
 
+function displayPlaces() {
+    const placesList = document.getElementById('places-list');
+    placesList.innerHTML = '';
+
+    const places = JSON.parse(localStorage.getItem('places')) || [];
+
+    places.forEach(place => {
+        const listItem = document.createElement('li');
+        listItem.textContent = `Place: ${place.place}, Country: ${place.country}, Date: ${place.date}`;
+        placesList.appendChild(listItem);
+    });
+}
+
 document.getElementById('place-fm').addEventListener('submit', function(event) {
     event.preventDefault(); 
-    
-    
+
     const place = document.getElementById('place').value;
     const country = document.getElementById('country').value;
     const date = document.getElementById('date').value;
-    
-    
-    const listItem = document.createElement('li');
-    listItem.textContent = `Place: ${place}, Country: ${country}, Date: ${date}`;
-    
-    
-    document.getElementById('places-list').appendChild(listItem);
-    
-    
+
+    const newPlace = { place, country, date };
+
+    const places = JSON.parse(localStorage.getItem('places')) || [];
+
+    places.push(newPlace);
+
+    localStorage.setItem('places', JSON.stringify(places));
+
     document.getElementById('place').value = '';
     document.getElementById('country').value = '';
     document.getElementById('date').value = '';
+
+    displayPlaces();
 });
+
+window.addEventListener('load', displayPlaces);

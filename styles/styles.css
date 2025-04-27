@@ -95,3 +95,10 @@ section p {
 #table-container {
     overflow-x: auto;
 }
+
+#places {
+    background-color: #4a90e2;
+    padding: 20px;
+    text-align: center;
+    color: white;
+}

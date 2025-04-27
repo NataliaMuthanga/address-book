@@ -67,3 +67,31 @@ section p {
 #address-fm button:hover {
     background-color: #357ab8;
 }
+
+#myTable {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 20px;
+}
+
+#myTable thead {
+    background-color: #0077cc;
+    color: white;
+}
+
+#mtTable th,#myTable td {
+    padding: 12px 15px;
+    text-align: left;
+    border: 1px solid black;
+}
+
+#myTable tbody tr:hover {
+    background-color: #f1f1f1;
+    cursor: pointer;
+}
+
+#table-container {
+    overflow-x: auto;
+}

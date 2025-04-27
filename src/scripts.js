@@ -53,3 +53,24 @@ function loadContacts() {
 }
 
 displayContacts(contacts);
+
+document.getElementById('place-fm').addEventListener('submit', function(event) {
+    event.preventDefault(); 
+    
+    
+    const place = document.getElementById('place').value;
+    const country = document.getElementById('country').value;
+    const date = document.getElementById('date').value;
+    
+    
+    const listItem = document.createElement('li');
+    listItem.textContent = `Place: ${place}, Country: ${country}, Date: ${date}`;
+    
+    
+    document.getElementById('places-list').appendChild(listItem);
+    
+    
+    document.getElementById('place').value = '';
+    document.getElementById('country').value = '';
+    document.getElementById('date').value = '';
+});
